@@ -1,0 +1,13 @@
+<launch>
+    <!-- Node for running the virtual world reset script -->
+    <node name="virtual_reset_world"
+          pkg="q_learning_project"
+          type="virtual_reset_world.py"
+          output="screen" />
+
+    <!-- Node for running the Q-learning algorithm -->
+    <node name="q_learning"
+          pkg="q_learning_project"
+          type="q_learning.py"
+          output="screen" />
+</launch>

@@ -1,0 +1,14 @@
+<!-- TODO -->
+<launch>
+    <!-- Republish compressed image to raw -->
+    <node name="republish" pkg="image_transport" type="republish" args="compressed in:=raspicam_node/image raw out:=camera/rgb/image_raw" output="screen"/>
+
+    <!-- Launch TurtleBot3 Manipulation -->
+    <include file="$(find turtlebot3_manipulation_bringup)/launch/turtlebot3_manipulation_bringup.launch"/>
+
+    <!-- Launch Move Group for TurtleBot3 Manipulation -->
+    <include file="$(find turtlebot3_manipulation_moveit_config)/launch/move_group.launch"/>
+
+    <!-- Run the Perception Script -->
+    <node name="perception" pkg="q_learning_project" type="perception.py" output="screen"/>
+</launch>
